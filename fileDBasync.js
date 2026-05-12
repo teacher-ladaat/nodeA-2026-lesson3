@@ -19,3 +19,13 @@ exports.getAllUsers = () => {
         }
     });
 };
+
+// Create
+exports.addUser = (username, password) => {
+    fs.appendFile(myDB, username + ' ' + password + '\r\n', (err) => {
+        if (err) {
+            return console.log(err.message);            
+        }
+        console.log('user added successfully');        
+    });
+};

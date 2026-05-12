@@ -6,7 +6,15 @@ const fs = require('node:fs');
 
 // Create
 exports.addUser = (username, password) => {
+    try {
+        // append - הוספה לסוף הקובץ
+        fs.appendFileSync('users.txt', `${username} ${password}\r\n`);
 
+        // write - דורס את תוכן הקובץ
+        // fs.writeFileSync('users.txt', `${username} ${password}\r\n`);
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 // Read
